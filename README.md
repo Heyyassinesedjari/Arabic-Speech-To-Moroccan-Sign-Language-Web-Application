@@ -29,7 +29,9 @@ Every part of this project is sample code which shows how to do the following:
 * Create a Messenger like web application using Flask, HTML, CSS and JavaScript.
 
 ### Main Page :
+<p align="center">
 <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/7b95eacc-f712-4809-a8fa-21a9293d31e8" width="70%" height="70%">
+</p>
 
 ## Getting Started (Ubuntu/Debian)
 * Install Git
@@ -63,19 +65,34 @@ Every part of this project is sample code which shows how to do the following:
 ## High-level functional explanation
 
 ### AS to MSL System Architecture Diagram
-<img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/5375f2a9-be81-49a6-967e-fd3d8288296e" width="70%" height="70%">
+
+<p align="center">
+<img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/5375f2a9-be81-49a6-967e-fd3d8288296e" width="50%" height="50%">
+</p>
 
 ### Automatic Speech Recognition with Wave2Vec
-<img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/b21f5868-cb19-46bd-ba86-219df3021258" width="70%" height="70%">
+
+<p align="center">
+<img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/b21f5868-cb19-46bd-ba86-219df3021258" width="50%" height="50%">
+</p>
 
 ### Arabic Text Preprocessing
-<img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/082bc1c1-0dfb-45bd-ae81-df00e0b4a369" width="70%" height="70%">
+
+<p align="center">
+<img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/082bc1c1-0dfb-45bd-ae81-df00e0b4a369" width="50%" height="50%">
+</p>
 
 ### Video Retrieval and Concatenation
-<img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/88e152d7-e10b-45b1-8a5f-c0cc3b72107f" width="70%" height="70%">
+
+<p align="center">
+<img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/88e152d7-e10b-45b1-8a5f-c0cc3b72107f" width="50%" height="50%">
+</p>
 
 ### Application Sequence Diagram
-<img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/6f2b1db5-d767-4887-816c-eb9b7d49a805" width="70%" height="70%">
+
+<p align="center">
+<img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/6f2b1db5-d767-4887-816c-eb9b7d49a805" width="50%" height="50%">
+</p>
 
 ###  Video Demo
 https://drive.google.com/file/d/1ZiisKXhRhfLi_eq9hodVj76eoho48SiF/view?usp=sharing
