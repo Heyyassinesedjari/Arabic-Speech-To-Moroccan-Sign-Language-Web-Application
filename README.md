@@ -25,8 +25,11 @@ Additionally, I aim to develop an automatic speech recognition model specificall
 
 Every part of this project is sample code which shows how to do the following:
 
-* Create a speech to video translating Arabic Speech (AS) to Moroccan Sign Language (MSL) using Python.
-* Create a Messenger like web application using Flask, HTML, CSS and JavaScript.
+* Create a speech-to-video translator for Arabic Speech (AS) to Moroccan Sign Language (MSL) using Python.
+* Develop a Messenger-like web application using Flask, HTML, CSS, and JavaScript.
+* Convert Arabic speech to Arabic text by leveraging Automatic Arabic Speech Recognition using [wav2vec2-large-xlsr-53-arabic](https://huggingface.co/jonatasgrosman/wav2vec2-large-xlsr-53-arabic) through HuggingFace's inference api.
+* Leverage NLP techniques to preprocess Arabic text using the Natural Language Toolkit (NLTK) and Regular Expressions (regex).
+* Create an MSL video retriever and concatenator using OpenCV.
 
   
 <p align="center">
