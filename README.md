@@ -16,16 +16,19 @@ This project is a part of my end of 2nd year project at [ENSIAS](https://fr.wiki
   Image Source: https://www.nsf.gov/news/mmg/mmg_disp.jsp?med_id=78950&from=
 </p>
 
-Motivated by this observation, I decided to take on the project myself. My initial step was to create a basic web application containing a small set of words in Moroccan Sign Language, providing a starting point for open-source contributors in Morocco. I plan to expand this into a mobile application, incorporating a more comprehensive range of Moroccan signs that represent everyday spoken vocabulary.
+Motivated by this insight, I embarked on the project myself, initiating with a basic web application featuring a limited set of Moroccan Sign Language words. This serves as a starting point for open-source contributors in Morocco, a primary focus of this project.
 
-Furthermore, beyond the scope of sign language, I also see potential in training an automatic speech recognition model specifically on the Moroccan dialect. This broader approach aims to accommodate individuals who speak the dialect but not formal Arabic, potentially reaching around 40 million potential users. The goal is to create a holistic solution tailored to meet the communication needs of the Moroccan market.
+Looking ahead, I plan to evolve this into a mobile application, expanding the range of Moroccan signs to cover more everyday spoken vocabulary.
+
+Additionally, I aim to develop an automatic speech recognition model specifically for the Moroccan dialect. This broader approach could benefit around 40 million potential users, catering to those who speak the dialect but not formal Arabic. The goal remains to create a comprehensive solution meeting the communication needs of the Moroccan market.
 
 Every part of this project is sample code which shows how to do the following:
 
 * Create a speech to video translating arabic speech to Moroccan Sign Language (MSL) using Python.
-* Implement a Document Retriever using wikipedia api.
-* Implement a Document Reader using Transformers including both [distilbert-base-cased-distilled-squad](https://huggingface.co/distilbert-base-cased-distilled-squad) and [AraElectra-Arabic-SQuADv2-QA](https://huggingface.co/ZeyadAhmed/AraElectra-Arabic-SQuADv2-QA) through api calls to the HuggingFace server.
 * Create a Messenger like web application using Flask, HTML, CSS and JavaScript.
+
+### Main Page of the web application:
+<img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/7b95eacc-f712-4809-a8fa-21a9293d31e8" width="70%" height="70%">
 
 ## Getting Started (Ubuntu/Debian)
 * Install Git
@@ -58,17 +61,20 @@ Every part of this project is sample code which shows how to do the following:
 
 ## High-level functional explanation
 
-### Q&A System Architecture Diagram
-<img src="https://github.com/Heyyassinesedjari/QuestionAnsweringWebApp/assets/94799575/ced251a7-9413-4dc0-8f0e-beac07ba3668" width="70%" height="70%">
+### AS to MSL System Architecture Diagram
+<img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/5375f2a9-be81-49a6-967e-fd3d8288296e" width="70%" height="70%">
 
-### Document Retriever Architecture Diagram
-<img src="https://github.com/Heyyassinesedjari/QuestionAnsweringWebApp/assets/94799575/602dad7c-bbd6-42a4-837d-a90e797ab187" width="70%" height="70%">
+### Automatic Speech Recognition with Wave2Vec
+<img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/b21f5868-cb19-46bd-ba86-219df3021258" width="70%" height="70%">
 
-### Document Reader Architecture Diagram
-<img src="https://github.com/Heyyassinesedjari/QuestionAnsweringWebApp/assets/94799575/ced251a7-9413-4dc0-8f0e-beac07ba3668" width="70%" height="70%">
+### Arabic Text Preprocessing
+<img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/082bc1c1-0dfb-45bd-ae81-df00e0b4a369" width="70%" height="70%">
+
+### Video Retrieval and Concatenation
+<img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/88e152d7-e10b-45b1-8a5f-c0cc3b72107f" width="70%" height="70%">
 
 ### Application Sequence Diagram
-<img src="https://github.com/Heyyassinesedjari/QuestionAnsweringWebApp/assets/94799575/83f19996-94c1-4be5-ba6f-ef1ff1329bbd" width="70%" height="70%">
+<img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/6f2b1db5-d767-4887-816c-eb9b7d49a805" width="70%" height="70%">
 
 ###  Video Demo
 https://drive.google.com/file/d/1ZiisKXhRhfLi_eq9hodVj76eoho48SiF/view?usp=sharing
