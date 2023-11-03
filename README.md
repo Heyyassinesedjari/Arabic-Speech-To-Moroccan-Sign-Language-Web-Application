@@ -9,7 +9,10 @@
 This project is a part of my end of 2nd year project at [ENSIAS](https://fr.wikipedia.org/wiki/%C3%89cole_nationale_sup%C3%A9rieure_d%27informatique_et_d%27analyse_des_syst%C3%A8mes), [Mohammed V University](https://en.wikipedia.org/wiki/Mohammed_V_University). When exploring potential project ideas, Professor M. Naoum suggested creating a mobile app to facilitate communication between the Moroccan deaf community and individuals who can hear. After a brief review on platforms like Github and Google Scholar, I noticed a focus on converting sign language videos into written or spoken English using CNNs in existing projects. However, there were limited solutions in the reverse—translating spoken language into sign language, especially addressing Arabic speech and Moroccan Sign Language.
 
 July 21, 2015: Few resources exist for deaf students in Morocco, making assistive devices important for classrooms.
-<img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/e74f0f28-f607-4800-b218-9d4b54aedfc6" width="50%" height="50%"> <br>
+<div style="text-align: center;">
+    <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/e74f0f28-f607-4800-b218-9d4b54aedfc6" width="50%" height="50%">
+</div>
+ <br>
 Image Source: https://www.nsf.gov/news/mmg/mmg_disp.jsp?med_id=78950&from=
 
 Motivated by this observation, I decided to take on the project myself. My initial step was to create a basic web application containing a small set of words in Moroccan Sign Language, providing a starting point for open-source contributors in Morocco. I plan to expand this into a mobile application, incorporating a more comprehensive range of Moroccan signs that represent everyday spoken vocabulary.
