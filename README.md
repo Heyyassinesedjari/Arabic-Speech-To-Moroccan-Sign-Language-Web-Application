@@ -28,7 +28,7 @@ Every part of this project is sample code which shows how to do the following:
 * Create a speech to video translating Arabic Speech (AS) to Moroccan Sign Language (MSL) using Python.
 * Create a Messenger like web application using Flask, HTML, CSS and JavaScript.
 
-### Main Page of the web application:
+### Main Page :
 <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/7b95eacc-f712-4809-a8fa-21a9293d31e8" width="70%" height="70%">
 
 ## Getting Started (Ubuntu/Debian)
