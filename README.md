@@ -1,13 +1,8 @@
-# Arabic Speech To Moroccan Sign Language Web Application
-
-![conda](https://img.shields.io/badge/conda-4.12.0-orange)
-![python](https://img.shields.io/badge/Python-3.9.12-green)
-![MIT License](https://img.shields.io/badge/MIT_License-blue)
-
+# <p align="center">Arabic Speech To Moroccan Sign Language Web Application</p>
 <p align="center">
-  July 21, 2015: Few resources exist for deaf students in Morocco, making assistive devices important for classrooms.
-  
   <img src="https://img.shields.io/badge/conda-4.12.0-orange" width="10%" height="10%">
+  <img src="https://img.shields.io/badge/Python-3.9.12-green" width="10%" height="10%">
+  <img src="https://img.shields.io/badge/MIT_License-blue" width="8%" height="8%">
 </p>
 
 ## An operational web application that interprets spoken Arabic into Moroccan Sign Language videos, enabling seamless communication for the hearing-impaired.
