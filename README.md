@@ -12,8 +12,6 @@ July 21, 2015: Few resources exist for deaf students in Morocco, making assistiv
 <p align="center">
   <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/e74f0f28-f607-4800-b218-9d4b54aedfc6" width="50%" height="50%">
 </p>
-
- <br>
 Image Source: https://www.nsf.gov/news/mmg/mmg_disp.jsp?med_id=78950&from=
 
 Motivated by this observation, I decided to take on the project myself. My initial step was to create a basic web application containing a small set of words in Moroccan Sign Language, providing a starting point for open-source contributors in Morocco. I plan to expand this into a mobile application, incorporating a more comprehensive range of Moroccan signs that represent everyday spoken vocabulary.
