@@ -12,7 +12,8 @@ This project is a part of my end of 2nd year project at [ENSIAS](https://fr.wiki
   July 21, 2015: Few resources exist for deaf students in Morocco, making assistive devices important for classrooms.
   
   <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/e74f0f28-f607-4800-b218-9d4b54aedfc6" width="50%" height="50%">
-  
+</p>
+<p align="center">
   Image Source: https://www.nsf.gov/news/mmg/mmg_disp.jsp?med_id=78950&from=
 </p>
 
