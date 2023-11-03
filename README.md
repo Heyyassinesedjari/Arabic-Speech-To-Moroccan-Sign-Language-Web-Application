@@ -1,4 +1,4 @@
-# Arabic-Speech-To-Moroccan-Sign-Language-Web-Application
+# Arabic Speech To Moroccan Sign Language Web Application
 
 ![conda](https://img.shields.io/badge/conda-4.12.0-orange)
 ![python](https://img.shields.io/badge/Python-3.9.12-green)
