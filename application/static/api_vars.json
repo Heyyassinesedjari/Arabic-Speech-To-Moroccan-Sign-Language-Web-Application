@@ -1,1 +1,1 @@
-{"API_URL1": "https://api-inference.huggingface.co/models/MohammedNasri/whisper-small-AR", "headers": {"Authorization": "Bearer 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"}, "API_URL2": "https://api-inference.huggingface.co/models/jonatasgrosman/wav2vec2-large-xlsr-53-arabic"}
+{"API_URL1": "https://api-inference.huggingface.co/models/MohammedNasri/whisper-small-AR", "headers": {"Authorization": "Bearer Your_Hugging_Face_API_key"}, "API_URL2": "https://api-inference.huggingface.co/models/jonatasgrosman/wav2vec2-large-xlsr-53-arabic"}
