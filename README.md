@@ -7,7 +7,7 @@
 <p align="center">
   July 21, 2015: Few resources exist for deaf students in Morocco, making assistive devices important for classrooms.
   
-  <img src="https://img.shields.io/badge/conda-4.12.0-orange" width="5%" height="5%">
+  <img src="https://img.shields.io/badge/conda-4.12.0-orange" width="10%" height="10%">
 </p>
 
 ## An operational web application that interprets spoken Arabic into Moroccan Sign Language videos, enabling seamless communication for the hearing-impaired.
