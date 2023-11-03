@@ -30,8 +30,7 @@ Every part of this project is sample code which shows how to do the following:
 
   
 <p align="center">
-  Main Page 
-  
+  Main Page <br>
   <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/7b95eacc-f712-4809-a8fa-21a9293d31e8" width="70%" height="70%">
 </p>
 
