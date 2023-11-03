@@ -62,6 +62,9 @@ Every part of this project is sample code which shows how to do the following:
   ```bash
   conda activate myenv
   conda install --file path_to_requirements.txt
+  
+* Hover over to the api_var.json file located in application/static/ and update the 'Your_Hugging_Face_API_key' in the authorization field with your actual Hugging Face API key. 
+
 * Run the App
   ```bash
   python app.py
