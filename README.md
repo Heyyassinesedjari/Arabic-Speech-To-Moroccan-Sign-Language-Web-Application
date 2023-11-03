@@ -66,28 +66,32 @@ Every part of this project is sample code which shows how to do the following:
 ## High-level functional explanation
 
 <p align="center">
-  AS to MSL System Architecture Diagram
+  AS to MSL System Architecture Diagram <br>
   
   <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/5375f2a9-be81-49a6-967e-fd3d8288296e" width="50%" height="50%">
 </p>
 
 <p align="center">
-Automatic Speech Recognition with Wave2Vec
+Automatic Speech Recognition with Wave2Vec <br>
+  
 <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/b21f5868-cb19-46bd-ba86-219df3021258" width="50%" height="50%">
 </p>
 
 <p align="center">
-  Arabic Text Preprocessing
+  Arabic Text Preprocessing <br>
+  
   <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/082bc1c1-0dfb-45bd-ae81-df00e0b4a369" width="50%" height="50%">
 </p>
 
 <p align="center">
-  Video Retrieval and Concatenation
+  Video Retrieval and Concatenation <br>
+  
   <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/88e152d7-e10b-45b1-8a5f-c0cc3b72107f" width="50%" height="50%">
 </p>
 
 <p align="center">
-  Application Sequence Diagram
+  Application Sequence Diagram <br>
+  
   <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/6f2b1db5-d767-4887-816c-eb9b7d49a805" width="50%" height="50%">
 </p>
 
