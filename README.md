@@ -1,9 +1,10 @@
+<p align="center">
 # Arabic Speech To Moroccan Sign Language Web Application
 
 ![conda](https://img.shields.io/badge/conda-4.12.0-orange)
 ![python](https://img.shields.io/badge/Python-3.9.12-green)
 ![MIT License](https://img.shields.io/badge/MIT_License-blue)
-
+</p>
 ## An operational web application that interprets spoken Arabic into Moroccan Sign Language videos, enabling seamless communication for the hearing-impaired.
 
 This project is a part of my end of 2nd year project at [ENSIAS](https://fr.wikipedia.org/wiki/%C3%89cole_nationale_sup%C3%A9rieure_d%27informatique_et_d%27analyse_des_syst%C3%A8mes), [Mohammed V University](https://en.wikipedia.org/wiki/Mohammed_V_University). When exploring potential project ideas, Professor [M. Naoum](http://ensias.um5.ac.ma/professor/m-mohamed-naoum) suggested creating a mobile app to facilitate communication between the Moroccan deaf community and individuals who can hear. After a brief review on platforms like Github and Google Scholar, I noticed a focus on converting sign language videos into written or spoken English using CNNs in existing projects. However, there were limited solutions in the reverse—translating spoken language into sign language, especially addressing Arabic speech and Moroccan Sign Language.
