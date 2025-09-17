@@ -7,10 +7,12 @@ import os
 import cv2
 import json
 import subprocess
+import unicodedata
 
 nltk.download('arabic')  
 nltk.download('stopwords')
 nltk.download('punkt')
+nltk.download('punkt_tab')  # This is the specific resource needed
 
 
 # File path to the JSON file
@@ -105,7 +107,7 @@ def concat_videos(video_paths):
 
 def preprocess_text(text, name_dir, is_name_dir=False):
 
-    alphabet = "ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م  ن ه و ن ه و ي".split()
+    alphabet = "ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي ".split()
 
     # Define a list of Arabic stop words.
     arabic_stopwords = stopwords.words('arabic')
@@ -117,7 +119,9 @@ def preprocess_text(text, name_dir, is_name_dir=False):
     possessif_suffixes = ["ي","ه","ك","هم","نا","هن","ها","كن","هن","كما"]
 
     # Tokenize the text into words.
+    print("start tokenizing the text into words")
     words = word_tokenize(text)
+    print("end tokenizing the text into words")
     # Remove stop words and punctuation marks
     filtered_words = [word for word in words if word not in arabic_stopwords and word not in arabic_punctuation]
     print("filtered_words  ",filtered_words )
@@ -137,15 +141,20 @@ def preprocess_text(text, name_dir, is_name_dir=False):
                 break
         new_list.append(text_list[i])
     n=len(new_list)
+    print("test list without suffixes: ",new_list)
 
-    if  not is_name_dir:
+    if not is_name_dir:
         ll=[]
         for word in new_list:
             if word not in name_dir:
                 for char in word:
-                    ll.append(char)
+                    # NFKC: Normalization Form KC (compatibility composed)
+                    normalized_char = unicodedata.normalize('NFKC', char)
+                    ll.append(normalized_char)
             else:
-                ll.append(word)                    
+                ll.append(word)
+            print("word: ", word)
+            print("word list: ", ll)                  
         lll = [string for string in ll if (string in alphabet) or (len(string)>1)]                  
         return lll
     else:
@@ -157,8 +166,10 @@ def find_indexes(large_list, small_list):
 
 def text2video(text,name_dir):
     print("text", text)
+    print("started preprocessing text!")
     videos_names = preprocess_text(text,name_dir)
-    print(videos_names)
+    print("ended preprocessing text!")
+    print("list of word aka video names: ",videos_names)
     hm = find_indexes(name_dir, videos_names)
     video_indexes = videos_names.copy()
     for i in range(len(videos_names)):

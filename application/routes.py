@@ -1,6 +1,6 @@
 from flask import request, jsonify,render_template, send_from_directory
 from application import app
-from application.functions import query2
+from application.functions import query
 from application.processing import text2video, name_dir
 from pydub import AudioSegment
 import os
@@ -50,40 +50,29 @@ def process_audio():
         audio_segment.export(output_path, format='mp3')
 
         print(f"Audio saved as {output_path}")
-        audio_file = 'application/static/audio.mp3'
-        with open(audio_file, 'rb') as file:
-            audio_data = file.read()
-        
-        if audio_data is not None:
-        # Convert audio to text
-            response = query2(audio_data)
-            if response:
-                print(response)
-               
-                try:
-                    print("request sent to Hugging Face")
-                    text = response["text"]
-                    print("response reveived from HuggingFace")
-                except:
-                    print("Hugging Face returned None")
-                    text = None
-                print("text:     ",text)
-                if (text is not None) and (text!=""):
-                    print("text2video conversion started")
-                    text2video(text,name_dir)
-                    print("text2video conversion finished")
-                    filepath="/static/database/output/converted_output123.mp4"
-                    result["message"]=200
-                    result["filepath"]=filepath
-                else:
-                    print("Hugging face website returned a None conversion")
-                    result["filepath"]=errorpath
-                    result["message"]=400
+        audio_file = output_path
+        if os.path.exists(audio_file):
+            # Convert audio to text
+            print("audio file found!")
+            try:
+                text = query(audio_path=audio_file).strip()
+                print("audio file converted to text!")
+            except:
+                text = ""
+                print("Error in converting the audio file!")
+            if  text!="":
+                print("text2video conversion started")
+                text2video(text,name_dir)
+                print("text2video conversion finished")
+                filepath="/static/database/output/converted_output123.mp4"
+                result["message"]=200
+                result["filepath"]=filepath
             else:
-                print("got no response from hugging face website")
+                print("Error in converting the audio file!")
                 result["filepath"]=errorpath
                 result["message"]=400
         else:
+            print("Can't find audio file!")
             result["filepath"]=errorpath
             result["message"]=400
     except:
