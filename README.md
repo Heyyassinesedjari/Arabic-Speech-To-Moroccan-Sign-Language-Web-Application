@@ -12,7 +12,7 @@ This project is a part of my end of 2nd year project at [ENSIAS](https://fr.wiki
 <p align="center">
   July 21, 2015: Few resources exist for deaf students in Morocco, making assistive devices important for classrooms.<br>
   
-  <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/e74f0f28-f607-4800-b218-9d4b54aedfc6" width="50%" height="50%">
+  <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-asr_to_sign/assets/94799575/e74f0f28-f607-4800-b218-9d4b54aedfc6" width="50%" height="50%">
 </p>
 <p align="center">
   Image Source: https://www.nsf.gov/news/mmg/mmg_disp.jsp?med_id=78950&from=
@@ -35,7 +35,7 @@ Every part of this project is sample code which shows how to do the following:
   
 <p align="center">
   Main Page <br>
-  <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/7b95eacc-f712-4809-a8fa-21a9293d31e8" width="70%" height="70%">
+  <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-asr_to_sign/assets/94799575/7b95eacc-f712-4809-a8fa-21a9293d31e8" width="70%" height="70%">
 </p>
 
 ## Getting Started (Ubuntu/Debian)
@@ -64,7 +64,7 @@ Every part of this project is sample code which shows how to do the following:
   conda activate myenv
   conda install --file path_to_requirements.txt
   
-* Hover over to the api_var.json file located in application/static/ and update the 'Your_Hugging_Face_API_key' in the authorization field with your actual Hugging Face API key. 
+* Hover over to the api_var.json file located in asr_to_sign/static/ and update the 'Your_Hugging_Face_API_key' in the authorization field with your actual Hugging Face API key. 
 
 * Run the App
   ```bash
@@ -75,31 +75,31 @@ Every part of this project is sample code which shows how to do the following:
 <p align="center">
   AS to MSL System Architecture Diagram <br>
   
-  <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/5375f2a9-be81-49a6-967e-fd3d8288296e" width="50%" height="50%">
+  <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-asr_to_sign/assets/94799575/5375f2a9-be81-49a6-967e-fd3d8288296e" width="50%" height="50%">
 </p>
 
 <p align="center">
 Step 1: Automatic Speech Recognition with Wave2Vec <br>
   
-<img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/b21f5868-cb19-46bd-ba86-219df3021258" width="50%" height="50%">
+<img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-asr_to_sign/assets/94799575/b21f5868-cb19-46bd-ba86-219df3021258" width="50%" height="50%">
 </p>
 
 <p align="center">
   Step 2: Arabic Text Preprocessing <br>
   
-  <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/082bc1c1-0dfb-45bd-ae81-df00e0b4a369" width="50%" height="50%">
+  <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-asr_to_sign/assets/94799575/082bc1c1-0dfb-45bd-ae81-df00e0b4a369" width="50%" height="50%">
 </p>
 
 <p align="center">
   Step 3: Video Retrieval and Concatenation <br>
   
-  <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/88e152d7-e10b-45b1-8a5f-c0cc3b72107f" width="50%" height="50%">
+  <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-asr_to_sign/assets/94799575/88e152d7-e10b-45b1-8a5f-c0cc3b72107f" width="50%" height="50%">
 </p>
 
 <p align="center">
   Application Sequence Diagram <br>
   
-  <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-Application/assets/94799575/6f2b1db5-d767-4887-816c-eb9b7d49a805" width="50%" height="50%">
+  <img src="https://github.com/Heyyassinesedjari/Arabic-Speech-To-Moroccan-Sign-Language-Web-asr_to_sign/assets/94799575/6f2b1db5-d767-4887-816c-eb9b7d49a805" width="50%" height="50%">
 </p>
 
 ###  Video Demo
