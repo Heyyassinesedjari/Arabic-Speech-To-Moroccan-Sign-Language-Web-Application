@@ -1,11 +1,10 @@
-import json
 # Load model directly
 from transformers import AutoProcessor, AutoModelForCTC
 import torch
 import librosa
 import arabic_reshaper
 from bidi.algorithm import get_display
-import os
+
 
 
 
