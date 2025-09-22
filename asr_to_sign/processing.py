@@ -16,7 +16,7 @@ nltk.download('punkt_tab')  # This is the specific resource needed
 
 
 # File path to the JSON file
-file_path = "asr_to_sign/static/video_encoder.json"
+file_path = "static/video_encoder.json"
 
 # Load the JSON file
 with open(file_path, 'r') as file:
@@ -61,7 +61,7 @@ def concat_videos(video_paths):
             resized_frame = cv2.resize(frame, (max_width, max_height))
             resized_frames.append(resized_frame)
 
-        file_path = 'asr_to_sign/static/database/output/output123.mp4'  
+        file_path = 'static/database/output/output123.mp4'  
 
         try:
             os.remove(file_path)
@@ -71,7 +71,7 @@ def concat_videos(video_paths):
 
 
         # Create an output video writer
-        output_path = 'asr_to_sign/static/database/output/output123.mp4'
+        output_path = 'static/database/output/output123.mp4'
         fourcc = cv2.VideoWriter_fourcc(*'mp4v')
         out = cv2.VideoWriter(output_path, fourcc, 25, (max_width, max_height))
 
@@ -86,7 +86,7 @@ def concat_videos(video_paths):
         # Release the output video writer
         out.release()
 
-        file_path = 'asr_to_sign/static/database/output/converted_output123.mp4'  # Replace with the actual path of the file you want to delete
+        file_path = 'static/database/output/converted_output123.mp4'  # Replace with the actual path of the file you want to delete
 
         try:
             os.remove(file_path)
@@ -95,7 +95,7 @@ def concat_videos(video_paths):
             print(f"Error occurred while deleting file '{file_path}': {e}")
 
         # Convert the output video to H.264 encoding
-        converted_output_path = 'asr_to_sign/static/database/output/converted_output123.mp4'
+        converted_output_path = 'static/database/output/converted_output123.mp4'
         command = f'ffmpeg -i {output_path} -c:v libx264 -crf 23 -preset medium -c:a aac -b:a 128k {converted_output_path}'
         subprocess.call(command, shell=True)
 
@@ -175,7 +175,7 @@ def text2video(text,name_dir):
     for i in range(len(videos_names)):
         video_indexes[i] = hm[video_indexes[i]]
     print(video_indexes)
-    path = "asr_to_sign/static/database/"
+    path = "static/database/"
     video_paths  = [path+str(index) for index in video_indexes]
     video_paths = [getFilePath(vp) for vp in video_paths]
     print(video_paths)

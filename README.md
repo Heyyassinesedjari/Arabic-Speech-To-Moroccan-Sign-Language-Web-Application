@@ -64,7 +64,7 @@ Every part of this project is sample code which shows how to do the following:
   conda activate myenv
   conda install --file path_to_requirements.txt
   
-* Hover over to the api_var.json file located in asr_to_sign/static/ and update the 'Your_Hugging_Face_API_key' in the authorization field with your actual Hugging Face API key. 
+* Hover over to the api_var.json file located in static/ and update the 'Your_Hugging_Face_API_key' in the authorization field with your actual Hugging Face API key. 
 
 * Run the App
   ```bash

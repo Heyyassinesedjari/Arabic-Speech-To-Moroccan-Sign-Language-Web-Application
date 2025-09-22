@@ -43,7 +43,7 @@ def process_audio():
         audio = request.files['audio']
 
         # Specify the output file path with .mp3 extension
-        output_path = 'asr_to_sign/static/audio.mp3'
+        output_path = 'static/audio.mp3'
 
         # Save the audio in mp3 format
         audio_segment = AudioSegment.from_file(audio)
