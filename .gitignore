@@ -1,4 +1,3 @@
 __pycache__/
-prototype*.ipynb
-prototype.py
+experiments/
 venv2/
