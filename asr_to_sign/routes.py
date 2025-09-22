@@ -1,7 +1,7 @@
 from flask import request, jsonify,render_template, send_from_directory
 from asr_to_sign import app
 from asr_to_sign.functions import SpeechRecognizer
-from asr_to_sign.processing import text2video, name_dir
+from asr_to_sign.processing import SignLanguageTranslator
 from pydub import AudioSegment
 import os
 
@@ -62,8 +62,9 @@ def process_audio():
                 text = ""
                 print("Error in converting the audio file!")
             if  text!="":
+                sign_language_translator = SignLanguageTranslator()
                 print("text2video conversion started")
-                text2video(text,name_dir)
+                sign_language_translator.text_to_video(text)
                 print("text2video conversion finished")
                 filepath="/static/database/output/converted_output123.mp4"
                 result["message"]=200
