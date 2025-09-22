@@ -8,24 +8,6 @@ from bidi.algorithm import get_display
 import os
 
 
-
-
-# def query(filename):
-#     with open(filename, "rb") as f:
-#         data = f.read()
-#     print(type(data))
-#     print(data)
-#     response = requests.post(data1["API_URL2"], headers=data1["headers"], data=data)
-#     return response.json()
-
-# def query2(data):
-#     print(data)
-#     # response = requests.post(data1["API_URL2"], headers=data1["headers"], data=data)
-#     response = requests.post(data1["API_URL2"], headers=data1["headers"], data=data)
-#     print(response.json())
-#     return response.json()
-
-
 def query(audio_path='application\static\\audio.mp3'):
     processor = AutoProcessor.from_pretrained("jonatasgrosman/wav2vec2-large-xlsr-53-arabic")
     model = AutoModelForCTC.from_pretrained("jonatasgrosman/wav2vec2-large-xlsr-53-arabic")
