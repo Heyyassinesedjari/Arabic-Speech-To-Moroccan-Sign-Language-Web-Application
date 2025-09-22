@@ -1,6 +1,6 @@
 from flask import request, jsonify,render_template, send_from_directory
 from asr_to_sign import app
-from asr_to_sign.functions import query
+from asr_to_sign.functions import SpeechRecognizer
 from asr_to_sign.processing import text2video, name_dir
 from pydub import AudioSegment
 import os
@@ -55,7 +55,8 @@ def process_audio():
             # Convert audio to text
             print("audio file found!")
             try:
-                text = query(audio_path=audio_file).strip()
+                speech_recognizer = SpeechRecognizer()
+                text = speech_recognizer.transcribe(audio_path=audio_file).strip()
                 print("audio file converted to text!")
             except:
                 text = ""
