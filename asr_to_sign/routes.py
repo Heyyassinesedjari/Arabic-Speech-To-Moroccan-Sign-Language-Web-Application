@@ -2,9 +2,10 @@ from flask import request, jsonify,render_template, send_from_directory
 from asr_to_sign import app
 from asr_to_sign.functions import SpeechRecognizer
 from asr_to_sign.processing import SignLanguageTranslator
-from pydub import AudioSegment
 import os
+from file_manager import FileManager
 
+file_manager = FileManager()
 errorpath = "/static/database/error.mp4"
 
 @app.route("/Question_Answering_AR", methods=['GET','POST'])
@@ -44,23 +45,15 @@ def process_data():
 def process_audio():
     try:
         result={}
-        audio = request.files['audio']
-
-        # Specify the output file path with .mp3 extension
-        output_path = 'static/audio.mp3'
-
-        # Save the audio in mp3 format
-        audio_segment = AudioSegment.from_file(audio)
-        audio_segment.export(output_path, format='mp3')
-
-        print(f"Audio saved as {output_path}")
-        audio_file = output_path
-        if os.path.exists(audio_file):
+        audio_file_path='static/audio.mp3'
+        global file_manager
+        file_manager.save_audio_file_sent_by_browser(output_path=audio_file_path)
+        if file_manager.file_exists(audio_file_path):
             # Convert audio to text
             print("audio file found!")
             try:
                 speech_recognizer = SpeechRecognizer()
-                text = speech_recognizer.transcribe(audio_path=audio_file).strip()
+                text = speech_recognizer.transcribe(audio_path=audio_file_path).strip()
                 print("audio file converted to text!")
             except:
                 text = ""

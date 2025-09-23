@@ -8,15 +8,15 @@ import cv2
 import json
 import subprocess
 import unicodedata
+from file_manager import FileManager
 
 
 
 class SignLanguageTranslator:
     def __init__(self, video_base_path="static/database/", video_encoder_path="static/video_encoder.json"):
         self.video_base_path = video_base_path
-        # Load video encoder mapping
-        with open(video_encoder_path, 'r') as file:
-            self.name_dir = json.load(file)
+        self.file_manager = FileManager()
+        self.name_dir = self.file_manager.json_load(video_encoder_path)
         self.alphabet = "ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي ".split()
         # Define a list of Arabic stop words.
         self.arabic_stopwords = stopwords.words('arabic')
@@ -54,7 +54,7 @@ class SignLanguageTranslator:
         if not is_name_dir:
             ll=[]
             for word in new_list:
-                if word not in name_dir:
+                if word not in self.name_dir:
                     for char in word:
                         # NFKC: Normalization Form KC (compatibility composed)
                         normalized_char = unicodedata.normalize('NFKC', char)
@@ -68,18 +68,6 @@ class SignLanguageTranslator:
         else:
             lll = [string for string in new_list if (string in self.alphabet) or (len(string)>1)] 
             return lll
-        
-    def getFilePath(self, directory):
-        files = os.listdir(directory)
-        if len(files) == 1:
-            filename = files[0]
-            if directory.endswith("/"):
-                return directory+filename
-            else:
-                return directory+"/"+filename
-        else:
-            print("The directory does not contain a single file.")
-            return None
         
     def text_to_video_paths(self, text):
         print("text", text)
@@ -97,7 +85,7 @@ class SignLanguageTranslator:
         video_paths = [os.path.join(self.video_base_path, str(index)) for index in video_indexes]
         print("video_paths: ",video_paths)
         #get video paths
-        video_paths = [self.getFilePath(directory=vp) for vp in video_paths]
+        video_paths = [self.file_manager.get_file_path(directory=vp) for vp in video_paths]
         print("video_paths before filtering: ",video_paths)
         #filter out None values
         video_paths = [vp for vp in video_paths if vp is not None]
