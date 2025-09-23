@@ -69,7 +69,7 @@ class SignLanguageTranslator:
             lll = [string for string in new_list if (string in self.alphabet) or (len(string)>1)] 
             return lll
         
-    def getFilePath(directory):
+    def getFilePath(self, directory):
         files = os.listdir(directory)
         if len(files) == 1:
             filename = files[0]
@@ -79,6 +79,7 @@ class SignLanguageTranslator:
                 return directory+"/"+filename
         else:
             print("The directory does not contain a single file.")
+            return None
         
     def text_to_video_paths(self, text):
         print("text", text)
@@ -87,11 +88,20 @@ class SignLanguageTranslator:
         print("ended preprocessing text!")
         print("list of word aka video names: ",videos_names)
         #find indicies of videos names in name_dir
+        
         hm = {element:index for index, element in enumerate(self.name_dir) if element in videos_names}
+        print("hm: ",hm)
         video_indexes = [hm[name] for name in videos_names if name in hm]
+        print("video_indexes: ",video_indexes)
+        #get video directory paths
         video_paths = [os.path.join(self.video_base_path, str(index)) for index in video_indexes]
-        video_paths = [self.get_file_path(vp) for vp in video_paths if self.get_file_path(vp)]
-
+        print("video_paths: ",video_paths)
+        #get video paths
+        video_paths = [self.getFilePath(directory=vp) for vp in video_paths]
+        print("video_paths before filtering: ",video_paths)
+        #filter out None values
+        video_paths = [vp for vp in video_paths if vp is not None]
+        print("video_paths after filtering: ",video_paths)
         return video_paths
     
     def concat_videos(self, video_paths, output_path="static/database/output/converted_output123.mp4"):

@@ -14,12 +14,12 @@ chatForm.addEventListener('submit', (event) => {
   appendTyping();
   const data = {
     question: message,
-    language: 'english'
+    language: 'arabic'
   };
   fetch(url, {
     method: 'POST',
     headers: {
-      'Content-Type': 'asr_to_sign/json'
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
   })
@@ -209,28 +209,6 @@ function sendMessage(message) {
   console.log("Text message:", message);
 }
 
-// function sendVideo(videoUrl) {
-//   const messageItem = document.createElement("div");
-//   messageItem.classList.add("chat-message");
-//   messageItem.classList.add("incoming-message");
-//   messageItem.innerHTML = `
-//     <div class="video-message">
-//       <video controls style="width: 400px; height: 300px;">
-//         <source src="${videoUrl}" type="video/mp4">
-//         Your browser does not support the video element.
-//       </video>
-//     </div>
-//   `;
-
-//   chatBox.appendChild(messageItem);
-//   chatBox.scrollTop = chatBox.scrollHeight;
-
-//   // Attacher un gestionnaire d'événement pour le chargement de la vidéo
-//   const videoElement = messageItem.querySelector("video");
-//   videoElement.addEventListener("canplaythrough", function() {
-//     videoElement.play();
-//   });
-// }
 
 
 

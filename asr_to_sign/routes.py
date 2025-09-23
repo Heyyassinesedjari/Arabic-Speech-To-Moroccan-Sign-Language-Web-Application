@@ -19,20 +19,24 @@ def home_page_en():
 
 @app.route('/process_data', methods=['POST'])
 def process_data():
+    print("process data called")
     result={}
     try:
+        print("try block entered")
         data = request.get_json()
         print(data["question"])
         if data["question"]=="":
             raise Exception("This is a forced exception")
-        text2video(data["question"],name_dir)
+        sign_language_translator = SignLanguageTranslator()
+        sign_language_translator.text_to_video(text=data["question"])
         print(data["question"])
         filepath="/static/database/output/converted_output123.mp4"
         result["message"]=200
         result["filepath"]=filepath
-    except:
+    except Exception as e:
         result["filepath"]=errorpath
         result["message"]=400
+        print("Exception:", e)
     return jsonify(result)
 
 
