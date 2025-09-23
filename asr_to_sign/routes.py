@@ -3,7 +3,7 @@ from asr_to_sign import app
 from asr_to_sign.functions import SpeechRecognizer
 from asr_to_sign.processing import SignLanguageTranslator
 import os
-from file_manager import FileManager
+from .file_manager import FileManager
 
 file_manager = FileManager()
 errorpath = "/static/database/error.mp4"
@@ -31,7 +31,7 @@ def process_data():
         sign_language_translator = SignLanguageTranslator()
         sign_language_translator.text_to_video(text=data["question"])
         print(data["question"])
-        filepath="/static/database/output/converted_output123.mp4"
+        filepath="/static/database/concatenated_MSL_video.mp4"
         result["message"]=200
         result["filepath"]=filepath
     except Exception as e:
@@ -63,7 +63,7 @@ def process_audio():
                 print("text2video conversion started")
                 sign_language_translator.text_to_video(text)
                 print("text2video conversion finished")
-                filepath="/static/database/output/converted_output123.mp4"
+                filepath="/static/database/concatenated_MSL_video.mp4"
                 result["message"]=200
                 result["filepath"]=filepath
             else:

@@ -1,14 +1,13 @@
-import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import string
 import re
 import os
 import cv2
-import json
 import subprocess
 import unicodedata
-from file_manager import FileManager
+from .file_manager import FileManager
+from .video_repository import VideoRepository
 
 
 
@@ -17,6 +16,7 @@ class SignLanguageTranslator:
         self.video_base_path = video_base_path
         self.file_manager = FileManager()
         self.name_dir = self.file_manager.json_load(video_encoder_path)
+        self.video_repository = VideoRepository(base_path=self.video_base_path)
         self.alphabet = "ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي ".split()
         # Define a list of Arabic stop words.
         self.arabic_stopwords = stopwords.words('arabic')
@@ -75,24 +75,33 @@ class SignLanguageTranslator:
         videos_names = self.preprocess_text(text,self.name_dir)
         print("ended preprocessing text!")
         print("list of word aka video names: ",videos_names)
-        #find indicies of videos names in name_dir
         
-        hm = {element:index for index, element in enumerate(self.name_dir) if element in videos_names}
-        print("hm: ",hm)
-        video_indexes = [hm[name] for name in videos_names if name in hm]
-        print("video_indexes: ",video_indexes)
-        #get video directory paths
-        video_paths = [os.path.join(self.video_base_path, str(index)) for index in video_indexes]
-        print("video_paths: ",video_paths)
-        #get video paths
-        video_paths = [self.file_manager.get_file_path(directory=vp) for vp in video_paths]
-        print("video_paths before filtering: ",video_paths)
-        #filter out None values
-        video_paths = [vp for vp in video_paths if vp is not None]
-        print("video_paths after filtering: ",video_paths)
-        return video_paths
+        #get_videos_paths
+        videos_paths = []
+        for name in videos_names:
+            path = self.video_repository.get_video_path(name)
+            if path!=None:
+                videos_paths.append(path)
+        print("videos_paths: ",videos_paths)
+        return videos_paths
+        
+        ##find indicies of videos names in name_dir        
+        # hm = {element:index for index, element in enumerate(self.name_dir) if element in videos_names}
+        # print("hm: ",hm)
+        # video_indexes = [hm[name] for name in videos_names if name in hm]
+        # print("video_indexes: ",video_indexes)
+        # #get video directory paths
+        # video_paths = [os.path.join(self.video_base_path, str(index)) for index in video_indexes]
+        # print("video_paths: ",video_paths)
+        # #get video paths
+        # video_paths = [self.file_manager.get_file_path(directory=vp) for vp in video_paths]
+        # print("video_paths before filtering: ",video_paths)
+        # #filter out None values
+        # video_paths = [vp for vp in video_paths if vp is not None]
+        # print("video_paths after filtering: ",video_paths)
+        # return video_paths
     
-    def concat_videos(self, video_paths, output_path="static/database/output/converted_output123.mp4"):
+    def concat_videos(self, video_paths, output_path="static/database/concatenated_MSL_video.mp4"):
         frames = []
         try:
             # Load and append frames from each video to the frames list
@@ -113,9 +122,9 @@ class SignLanguageTranslator:
             max_width = max(frame.shape[1] for frame in frames)
             # Resize frames to the maximum dimensions
             resized_frames = [cv2.resize(frame, (max_width, max_height)) for frame in frames]
-            temp_output = 'static/database/output/output123.mp4'  
+            temp_output = 'static/database/temp_concatenated_MSL_video.mp4'  
             if os.path.exists(temp_output):
-                            os.remove(temp_output)
+                os.remove(temp_output)
             # Create an output video writer
             fourcc = cv2.VideoWriter_fourcc(*'mp4v')
             out = cv2.VideoWriter(temp_output, fourcc, 25, (max_width, max_height))
