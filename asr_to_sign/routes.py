@@ -5,6 +5,11 @@ from asr_to_sign.processing import SignLanguageTranslator
 import os
 from .file_manager import FileManager
 
+
+
+import arabic_reshaper
+from bidi.algorithm import get_display
+
 file_manager = FileManager()
 errorpath = "/static/database/error.mp4"
 
@@ -25,12 +30,20 @@ def process_data():
     try:
         print("try block entered")
         data = request.get_json()
-        print(data["question"])
+        print("original typed text: ",data["question"])
         if data["question"]=="":
             raise Exception("This is a forced exception")
+        
+
+        ## Rendering arabic text
+        # Reshape the text to connect letters properly
+        reshaped_text = arabic_reshaper.reshape(data["question"])
+        # Apply RTL direction
+        proper_arabic = get_display(reshaped_text)
+        print("proper_arabic", proper_arabic)
+
         sign_language_translator = SignLanguageTranslator()
-        sign_language_translator.text_to_video(text=data["question"])
-        print(data["question"])
+        sign_language_translator.text_to_video(text=proper_arabic)
         filepath="/static/database/concatenated_MSL_video.mp4"
         result["message"]=200
         result["filepath"]=filepath

@@ -50,6 +50,8 @@ class SignLanguageTranslator:
             new_list.append(text_list[i])
         n=len(new_list)
         print("test list without suffixes: ",new_list)
+        print("Arabic words/letters currently supported in MSL translation: ",self.name_dir)
+        print("is_name_dir ",is_name_dir)
 
         if not is_name_dir:
             ll=[]
@@ -72,7 +74,7 @@ class SignLanguageTranslator:
     def text_to_video_paths(self, text):
         print("text", text)
         print("started preprocessing text!")
-        videos_names = self.preprocess_text(text,self.name_dir)
+        videos_names = self.preprocess_text(text, is_name_dir=False)
         print("ended preprocessing text!")
         print("list of word aka video names: ",videos_names)
         
@@ -83,6 +85,8 @@ class SignLanguageTranslator:
             if path!=None:
                 videos_paths.append(path)
         print("videos_paths: ",videos_paths)
+        videos_paths.reverse()
+        print("videos_paths reversed: ",videos_paths)
         return videos_paths
         
         ##find indicies of videos names in name_dir        
