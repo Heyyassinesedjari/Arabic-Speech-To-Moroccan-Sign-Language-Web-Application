@@ -8,7 +8,9 @@ import subprocess
 import unicodedata
 from .file_manager import FileManager
 from .video_repository import VideoRepository
-
+import arabic_reshaper
+import unicodedata
+from bidi.algorithm import get_display
 
 
 class SignLanguageTranslator:
@@ -16,6 +18,23 @@ class SignLanguageTranslator:
         self.video_base_path = video_base_path
         self.file_manager = FileManager()
         self.name_dir = self.file_manager.json_load(video_encoder_path)
+        print("Original name_dir: ",self.name_dir)
+        #preprocessing name_dir
+        for i in range(len(self.name_dir)):
+            arabic_word = self.name_dir[i]
+            #arabic_word = arabic_word[::-1]
+            print("Reversed arabic_word:", arabic_word)
+            arabic_word = unicodedata.normalize('NFKC', arabic_word)
+            print("Deshaped arabic_word:", arabic_word)
+            # Reshape the text to connect letters properly
+            reshaped_text = arabic_reshaper.reshape(arabic_word)
+            print("Reshaped arabic_word:", reshaped_text)
+            # Apply RTL direction
+            proper_arabic = get_display(reshaped_text)
+            print("Proper arabic_word:", proper_arabic)
+            self.name_dir[i]=proper_arabic
+        print("Final name_dir: ",self.name_dir)
+
         self.video_repository = VideoRepository(base_path=self.video_base_path)
         self.alphabet = "ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي ".split()
         # Define a list of Arabic stop words.
@@ -38,6 +57,23 @@ class SignLanguageTranslator:
         text_list = processed_string.split()
         print("text_list ",text_list)
         
+
+        #remove 'ﻟﺍ' prefix
+        for i in range(len(text_list)):
+            print(text_list[i][-2:])
+            print(text_list[i][-2:] in ['ﻟﺍ','لا','ﺍﻟ', 'ال'])
+            index=0
+            for pref in ['ﻟﺍ','لا','ﺍﻟ', 'ال']:
+                #arabic rendering is messed, here I want to replace prefix 'ﻟﺍ' or 'لا' or 'ﺍﻟ' or 'ال' with "" but cause it's reversed for some reason .endswith method is what's working.
+                if text_list[i].endswith(pref):
+                    text_list[i] = text_list[i].replace(pref,"")
+                    print(index)
+                index+=1
+            print("="*100)
+            # if text_list[i].startswith('ﻟﺍ'):
+            #     text_list[i] = text_list[i].replace('لا',"")
+        print("test list without prefix: ",text_list)
+
         #remove possessif suffixes
         new_list=[]
         for i in range(len(text_list)):
@@ -52,6 +88,22 @@ class SignLanguageTranslator:
         print("test list without suffixes: ",new_list)
         print("Arabic words/letters currently supported in MSL translation: ",self.name_dir)
         print("is_name_dir ",is_name_dir)
+
+        for i in range(n):
+            arabic_word = new_list[i]
+            arabic_word = arabic_word[::-1]
+            print("Reversed arabic_word:", arabic_word)
+            arabic_word = unicodedata.normalize('NFKC', arabic_word)
+            print("Deshaped arabic_word:", arabic_word)
+            # Reshape the text to connect letters properly
+            reshaped_text = arabic_reshaper.reshape(arabic_word)
+            print("Reshaped arabic_word:", reshaped_text)
+            # Apply RTL direction
+            proper_arabic = get_display(reshaped_text)
+            print("Proper arabic_word:", proper_arabic)
+            new_list[i]=proper_arabic
+
+        print("Final processed list: ",new_list)
 
         if not is_name_dir:
             ll=[]
@@ -84,6 +136,7 @@ class SignLanguageTranslator:
             path = self.video_repository.get_video_path(name)
             if path!=None:
                 videos_paths.append(path)
+            print("="*100)
         print("videos_paths: ",videos_paths)
         videos_paths.reverse()
         print("videos_paths reversed: ",videos_paths)
