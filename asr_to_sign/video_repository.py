@@ -4,6 +4,22 @@ import arabic_reshaper
 import unicodedata
 from bidi.algorithm import get_display
 
+#TODO: Add docstring and comments where needed
+#TODO: Add private methods where applicable
+#TODO: Add logging where applicable and remove print statements
+#TODO: Resolve any overlapping methods with file_manager.py and refactor if needed
+#TODO: Critique all OOP classes following SOLID principles
+#TODO: Simplify as much as you can the logic of all methods in whole project
+#TODO: Naming and Readability: Variable and function names may not be descriptive enough for maintainability.
+#TODO: Add docstring and comments explaining non-trivial logic
+#TODO: Error handling is likely minimal or ad hoc, especially in scripts and routes.
+#TODO: 
+#       Security
+#           No mention of environment variable management (e.g., for secrets).
+#           Static files and database outputs are exposed in the project tree.
+#TODO: CI/CD Configuration
+
+
 class VideoRepository:
     def __init__(self, base_path="static/database/"):
         self.base_path = base_path
@@ -13,7 +29,7 @@ class VideoRepository:
         path = os.path.join(self.base_path, f"{word}.mp4")
         return self.file_manager.file_exists(path)
     
-    #TODO: get to find arabicwords.mp4 videos or encode them with alatin or numbers to retrieve them easily as arabic words are hard to handle
+    
     def get_video_path(self, word):
         if len(word)==1:
             if self.video_exists(word):

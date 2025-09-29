@@ -6,6 +6,22 @@ import arabic_reshaper
 import unicodedata
 from bidi.algorithm import get_display
 
+
+#TODO: Add docstring and comments when needed
+#TODO: Add private methods where applicable
+#TODO: Add logging where applicable and remove print statements
+#TODO: See if there is any method overlap with video_repository.py and refactor if needed
+#TODO: Critique all OOP classes following SOLID principles
+#TODO: Simplify as much as you can the logic of all methods in whole project
+#TODO: Naming and Readability: Variable and function names may not be descriptive enough for maintainability.
+#TODO: Add docstring and comments explaining non-trivial logic
+#TODO: Error handling is likely minimal or ad hoc, especially in scripts and routes.
+#TODO: 
+#       Security
+#           No mention of environment variable management (e.g., for secrets).
+#           Static files and database outputs are exposed in the project tree.
+#TODO: CI/CD Configuration
+
 class FileManager:
     def __init__(self, base_path="static/"):
         self.base_path = base_path
@@ -44,8 +60,6 @@ class FileManager:
         directory, filename = os.path.split(file_path)
         norm_filename = filename
         for f in os.listdir(directory):
-            # print("f from listing dir:", f)
-            # print("norm_filename:", norm_filename)
             print("normalized f", self.format_arabic_filename_after_listing_them(f))
             if self.format_arabic_filename_after_listing_them(f) == norm_filename:
                 return True, f

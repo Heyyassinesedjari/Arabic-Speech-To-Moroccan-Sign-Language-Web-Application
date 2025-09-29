@@ -11,6 +11,22 @@ from .video_repository import VideoRepository
 import arabic_reshaper
 from bidi.algorithm import get_display
 
+
+
+#TODO: Add private methods where applicable
+#TODO: Add logging where applicable
+#TODO: Critique all OOP classes following SOLID principles
+#TODO: Simplify as much as you can the logic of all methods in whole project
+#TODO: Naming and Readability: Variable and function names may not be descriptive enough for maintainability.
+#TODO: Add docstring and comments explaining non-trivial logic
+#TODO: Error handling is likely minimal or ad hoc, especially in scripts and routes.
+#TODO: 
+#       Security
+#           No mention of environment variable management (e.g., for secrets).
+#           Static files and database outputs are exposed in the project tree.
+#TODO: CI/CD Configuration
+
+
 class ArabicTextToSignLanguageTranslator:
     """
     Translates Arabic text to Moroccan Sign Language (MSL) video sequences.

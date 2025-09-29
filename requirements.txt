@@ -1,3 +1,4 @@
+# TODO: The requirements.txt is present, but it’s unclear if it’s up to date or if all dependencies are pinned.
 arabic-reshaper==3.0.0
 asttokens==3.0.0
 audioread==3.0.1

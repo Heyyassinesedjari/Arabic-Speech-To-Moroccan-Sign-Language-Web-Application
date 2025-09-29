@@ -4,6 +4,19 @@ import librosa
 import arabic_reshaper
 from bidi.algorithm import get_display
 
+
+#TODO: Add logging where applicable and remove prints
+#TODO: Critique all OOP classes following SOLID principles
+#TODO: Simplify as much as you can the logic of all methods in whole project
+#TODO: Naming and Readability: Variable and function names may not be descriptive enough for maintainability.
+#TODO: Add docstring and comments explaining non-trivial logic
+#TODO: Error handling is likely minimal or ad hoc, especially in scripts and routes.
+#TODO: 
+#       Security
+#           No mention of environment variable management (e.g., for secrets).
+#           Static files and database outputs are exposed in the project tree.
+#TODO: CI/CD Configuration
+
 class SpeechRecognizer:
     """
     Handles Arabic speech recognition using a pretrained wav2vec2 model.
@@ -35,17 +48,23 @@ class SpeechRecognizer:
         """
         # Load the audio file and resample to 16kHz
         speech, rate = librosa.load(audio_path, sr=16000)
+
         # Process the audio for the model
         input_values = self.processor(speech, return_tensors="pt", sampling_rate=rate).input_values
+
         # Run inference to get logits
         with torch.no_grad():
             logits = self.model(input_values).logits
+
         # Get the predicted token IDs
         predicted_ids = torch.argmax(logits, dim=-1)
+
         # Decode the token IDs to unconnected Arabic text
         transcription = self.processor.batch_decode(predicted_ids)[0]
+
         # Reshape the text to connect letters properly
         reshaped_text = arabic_reshaper.reshape(transcription)
+
         # Apply right-to-left direction for proper display
         proper_arabic = get_display(reshaped_text)
         return proper_arabic
