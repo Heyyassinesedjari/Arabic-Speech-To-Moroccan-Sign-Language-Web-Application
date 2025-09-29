@@ -1,7 +1,7 @@
 from flask import request, jsonify,render_template, send_from_directory
 from asr_to_sign import app
 from asr_to_sign.functions import SpeechRecognizer
-from asr_to_sign.sign_language_translator import SignLanguageTranslator
+from asr_to_sign.arabic_text_to_sign_language_translator import ArabicTextToSignLanguageTranslator
 import os
 from .file_manager import FileManager
 
@@ -42,7 +42,7 @@ def process_data():
         proper_arabic = get_display(reshaped_text)
         print("proper_arabic", proper_arabic)
 
-        sign_language_translator = SignLanguageTranslator()
+        sign_language_translator = ArabicTextToSignLanguageTranslator()
         sign_language_translator.text_to_video(text=proper_arabic)
         filepath="/static/database/concatenated_MSL_video.mp4"
         result["message"]=200
@@ -72,7 +72,7 @@ def process_audio():
                 text = ""
                 print("Error in converting the audio file!")
             if  text!="":
-                sign_language_translator = SignLanguageTranslator()
+                sign_language_translator = ArabicTextToSignLanguageTranslator()
                 print("text2video conversion started")
                 sign_language_translator.text_to_video(text)
                 print("text2video conversion finished")

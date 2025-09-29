@@ -11,7 +11,7 @@ from .video_repository import VideoRepository
 import arabic_reshaper
 from bidi.algorithm import get_display
 
-class SignLanguageTranslator:
+class ArabicTextToSignLanguageTranslator:
     """
     Translates Arabic text to Moroccan Sign Language (MSL) video sequences.
     Handles text preprocessing, video lookup, and video concatenation.
