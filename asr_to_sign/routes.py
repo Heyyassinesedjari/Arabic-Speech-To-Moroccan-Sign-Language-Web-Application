@@ -1,7 +1,7 @@
 from flask import request, jsonify,render_template, send_from_directory
 from asr_to_sign import app
 from asr_to_sign.functions import SpeechRecognizer
-from asr_to_sign.processing import SignLanguageTranslator
+from asr_to_sign.sign_language_translator import SignLanguageTranslator
 import os
 from .file_manager import FileManager
 
