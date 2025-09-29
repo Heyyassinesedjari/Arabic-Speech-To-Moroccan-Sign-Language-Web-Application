@@ -88,6 +88,7 @@ class SignLanguageTranslator:
             proper_arabic = get_display(reshaped_text)
             new_list[i] = proper_arabic
 
+        # Map to alphabet if not in name_dir
         if not is_name_dir:
             ll = []
             for word in new_list:
