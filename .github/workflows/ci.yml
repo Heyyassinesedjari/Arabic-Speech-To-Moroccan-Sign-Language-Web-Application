@@ -1,0 +1,9 @@
+# Continuous Integration pipeline (lint + test)
+
+# # Install dependencies
+
+# # Run linters (flake8, black, isort, mypy for type checking)
+
+# # Run tests (pytest + coverage)
+
+# # (Optional) Build Docker image to verify it works

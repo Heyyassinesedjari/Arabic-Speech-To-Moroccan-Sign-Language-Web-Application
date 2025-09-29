@@ -1,0 +1,7 @@
+# (Optional) Continuous Deployment (.github/workflows/cd.yml)
+
+# # Triggered only on pushes to main (or manual)
+
+# # Build & push Docker image to GitHub Container Registry (GHCR) or Docker Hub
+
+# # Deploy to a hosting platform (for portfolio: Render, Railway, or even AWS/GCP if you want to flex cloud skills)
