@@ -1,3 +1,6 @@
+
+<!-- TODO: README.md should provide enough detail on setup, usage, and architecture. (Take into condideration, this is a portfolio project, discuss the purpose and structure) -->
+
 # <p align="center">Arabic Speech To Moroccan Sign Language Web Application</p>
 <p align="center">
   <img src="https://img.shields.io/badge/conda-4.12.0-orange" width="10%" height="10%">
