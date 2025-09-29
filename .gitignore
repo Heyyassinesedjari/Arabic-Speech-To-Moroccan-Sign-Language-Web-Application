@@ -3,3 +3,4 @@ experiments/
 venv2/
 static/database/concatenated_MSL_video.mp4
 static/database/temp_concatenated_MSL_video.mp4
+static/audio.mp3
