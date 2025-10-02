@@ -19,12 +19,12 @@ from .sign_language_video_assembler import SignLanguageVideoAssembler
 
 class ArabicTextToSignLanguageTranslator:
 
-    def __init__(self, video_base_path="static/database/", video_encoder_path="static/video_encoder.json"):
-        self.arabic_text_preprocessor = ArabicTextPreprocessor(video_encoder_path=video_encoder_path)
+    def __init__(self, video_base_path="static/database/", available_sign_videos_json_path="static/available_sign_videos.json"):
+        self.arabic_text_preprocessor = ArabicTextPreprocessor(available_sign_videos_json_path=available_sign_videos_json_path)
         self.sign_language_video_assembler = SignLanguageVideoAssembler(video_base_path=video_base_path)
 
     def text_to_video(self, text):
-        videos_names = self.arabic_text_preprocessor.preprocess(text, is_name_dir=False)
+        videos_names = self.arabic_text_preprocessor.preprocess(text)
         video_paths = self.sign_language_video_assembler.get_video_paths(videos_names)
         if not video_paths:
             return None
