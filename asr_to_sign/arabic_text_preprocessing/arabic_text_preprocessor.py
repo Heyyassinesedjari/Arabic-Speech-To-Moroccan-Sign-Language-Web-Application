@@ -14,17 +14,6 @@
 
 import logging
 from typing import List
-from .tokenization_step import TokenizationStep
-from .remove_stopwords_step import RemoveStopwordsStep
-from .remove_punctuation_step import RemovePunctuationStep
-from .remove_definite_article_step import RemoveDefiniteArticleStep
-from .remove_prefixes_step import RemovePrefixesStep
-from .remove_possessive_suffixes_step import RemovePossessiveSuffixesStep
-from .arabic_text_reverser_step import ArabicTextReverserStep
-from .arabic_text_normalizer_step import ArabicTextNormalizerStep
-from .arabic_text_reshaper_step import ArabicTextReshaperStep
-from .word_to_sign_video_mapper import WordToSignVideoMapper
-from asr_to_sign.utils.file_manager import FileManager
 
 class ArabicTextPreprocessor:
     """
@@ -32,23 +21,9 @@ class ArabicTextPreprocessor:
     for sign language translation.
     """
 
-    def __init__(self, available_sign_videos_json_path):
+    def __init__(self, steps):
+        self.steps = steps
 
-        self.available_sign_videos = FileManager().json_load(json_path=available_sign_videos_json_path)
-        
-        # Initialize each step (you can pass config as needed)
-        self.steps = [
-            TokenizationStep(),
-            RemoveStopwordsStep(),
-            RemovePunctuationStep(),
-            RemoveDefiniteArticleStep(),
-            RemovePrefixesStep(),
-            RemovePossessiveSuffixesStep(),
-            ArabicTextReverserStep(),
-            ArabicTextNormalizerStep(),
-            ArabicTextReshaperStep(),
-            WordToSignVideoMapper(available_sign_videos=self.available_sign_videos)
-        ]
 
     def preprocess(self, text: str) -> List[str]:
         """
