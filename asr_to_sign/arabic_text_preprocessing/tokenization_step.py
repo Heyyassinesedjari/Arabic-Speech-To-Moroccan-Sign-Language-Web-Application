@@ -1,10 +1,11 @@
-# fromasr_to_sign.interfaces import PreprocessingStep
-# from tokenize import tokenize
-
-# class TokenizationStep(PreprocessingStep):
-#     def process(self, words):
-#         # Tokenize the input text into words
-#         return tokenize(words)
+#TODO: Add Args and Returns examples in class method docstring.
+#TODO: Add Typing, Docstring, Inline Comments
+#TODO: See if there is any method overlap with video_repository.py and refactor if needed
+#TODO: 
+#       Security
+#           No mention of environment variable management (e.g., for secrets).
+#           Static files and database outputs are exposed in the project tree.
+#TODO: CI/CD Configuration
 
 
 import logging

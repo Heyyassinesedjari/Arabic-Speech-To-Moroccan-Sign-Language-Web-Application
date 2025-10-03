@@ -1,15 +1,12 @@
-#TODO: Add private methods where applicable
-#TODO: Add logging where applicable
-#TODO: Critique all OOP classes following SOLID principles
-#TODO: Simplify as much as you can the logic of all methods in whole project
-#TODO: Naming and Readability: Variable and function names may not be descriptive enough for maintainability.
-#TODO: Add docstring and comments explaining non-trivial logic
-#TODO: Error handling is likely minimal or ad hoc, especially in scripts and routes.
+#TODO: Add Args and Returns examples in class method docstring.
+#TODO: Add Typing, Docstring, Inline Comments
+#TODO: See if there is any method overlap with video_repository.py and refactor if needed
 #TODO: 
 #       Security
 #           No mention of environment variable management (e.g., for secrets).
 #           Static files and database outputs are exposed in the project tree.
 #TODO: CI/CD Configuration
+
         
 
 import logging
