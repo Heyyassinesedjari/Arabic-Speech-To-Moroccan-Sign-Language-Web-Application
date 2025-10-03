@@ -27,7 +27,7 @@ class VideoRepository:
         return os.path.exists(path)
     
     
-    def get_video_path(self, word):
+    def _get_video_path(self, word):
         if len(word)==1:
             if self.video_exists(word):
                 print(f"{word}.mp4 exists")
@@ -45,3 +45,16 @@ class VideoRepository:
             else:
                 print(f"{word}.mp4 does not exist")
                 return None
+            
+    def get_video_paths(self, videos_names):
+        videos_paths = []
+        # Iterate over each video name to get its corresponding file path
+        for name in videos_names:
+            path = self._get_video_path(name)
+            if path is not None:
+                # Add the path to the list if the video exists
+                videos_paths.append(path)
+
+        # Reverse the list of paths so the concatenation order matches the input text order
+        videos_paths.reverse()
+        return videos_paths

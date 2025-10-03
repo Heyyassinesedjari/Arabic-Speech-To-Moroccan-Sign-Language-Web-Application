@@ -26,11 +26,13 @@ from .arabic_text_preprocessing.arabic_text_normalizer_step import ArabicTextNor
 from .arabic_text_preprocessing.arabic_text_reshaper_step import ArabicTextReshaperStep
 from .arabic_text_preprocessing.word_to_sign_video_mapper import WordToSignVideoMapper
 from .utils.json_file_loader import JsonFileLoader
+from .video_processing.video_repository import VideoRepository
 
 class ArabicTextToSignLanguageTranslator:
 
     def __init__(self, video_base_path="static/database/", available_sign_videos_json_path="static/available_sign_videos.json" ):
-        self.sign_language_video_assembler = SignLanguageVideoAssembler(video_base_path=video_base_path)
+        self.sign_language_video_assembler = SignLanguageVideoAssembler()
+        self.video_repository = VideoRepository(base_path=video_base_path)  
         self.available_sign_videos = JsonFileLoader().load(json_path=available_sign_videos_json_path)
         self.steps = [
                 TokenizationStep(),
@@ -48,7 +50,7 @@ class ArabicTextToSignLanguageTranslator:
 
     def text_to_video(self, text):
         videos_names = self.arabic_text_preprocessor.preprocess(text)
-        video_paths = self.sign_language_video_assembler.get_video_paths(videos_names)
+        video_paths = self.video_repository.get_video_paths(videos_names)
         if not video_paths:
             return None
-        return self.sign_language_video_assembler.concatenate_videos(video_paths)
+        return self.sign_language_video_assembler.assemble(video_paths=video_paths)
