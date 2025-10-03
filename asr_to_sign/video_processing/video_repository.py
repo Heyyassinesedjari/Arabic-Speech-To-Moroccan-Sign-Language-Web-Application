@@ -1,6 +1,5 @@
-from asr_to_sign.utils.file_manager import FileManager
+from asr_to_sign.utils.file_existence_checker import ArabicFileExistenceChecker
 import os
-from bidi.algorithm import get_display
 
 #TODO: Add docstring and comments where needed
 #TODO: Add private methods where applicable
@@ -21,11 +20,11 @@ from bidi.algorithm import get_display
 class VideoRepository:
     def __init__(self, base_path="static/database/"):
         self.base_path = base_path
-        self.file_manager = FileManager()
+        self.arabic_file_existence_checker = ArabicFileExistenceChecker()
 
     def video_exists(self, word):
         path = os.path.join(self.base_path, f"{word}.mp4")
-        return self.file_manager.file_exists(path)
+        return os.path.exists(path)
     
     
     def get_video_path(self, word):
@@ -38,7 +37,7 @@ class VideoRepository:
                 return None
         else:
             path = os.path.join(self.base_path, f"{word}.mp4")
-            exists, video_file_name = self.file_manager.arabic_file_exists(file_path=path)
+            exists, video_file_name = self.arabic_file_existence_checker.exists(file_path=path)
             if exists:
                 print(f"{word}.mp4 exists")
                 new_path = os.path.join(self.base_path, video_file_name)

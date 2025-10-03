@@ -3,7 +3,7 @@ from asr_to_sign import app
 from asr_to_sign.speech_recognizer import SpeechRecognizer
 from asr_to_sign.arabic_text_to_sign_language_translator import ArabicTextToSignLanguageTranslator
 import os
-from .utils.file_manager import FileManager
+from .utils.audio_file_saver import AudioFileSaver
 
 
 #TODO: Refactor using OOP where applicable (fololowing SOLID principles)
@@ -23,7 +23,7 @@ from .utils.file_manager import FileManager
 import arabic_reshaper
 from bidi.algorithm import get_display
 
-file_manager = FileManager()
+audio_file_saver = AudioFileSaver()
 errorpath = "/static/database/error.mp4"
 
 @app.route("/Question_Answering_AR", methods=['GET','POST'])
@@ -72,9 +72,9 @@ def process_audio():
     try:
         result={}
         audio_file_path='static/audio.mp3'
-        global file_manager
-        file_manager.save_audio_file_sent_by_browser(output_path=audio_file_path)
-        if file_manager.file_exists(audio_file_path):
+        global audio_file_saver
+        audio_file_saver.save(output_path=audio_file_path)
+        if os.path.exists(audio_file_path):
             # Convert audio to text
             print("audio file found!")
             try:

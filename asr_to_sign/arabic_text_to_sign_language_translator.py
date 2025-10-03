@@ -25,13 +25,13 @@ from .arabic_text_preprocessing.arabic_text_reverser_step import ArabicTextRever
 from .arabic_text_preprocessing.arabic_text_normalizer_step import ArabicTextNormalizerStep
 from .arabic_text_preprocessing.arabic_text_reshaper_step import ArabicTextReshaperStep
 from .arabic_text_preprocessing.word_to_sign_video_mapper import WordToSignVideoMapper
-from .utils.file_manager import FileManager
+from .utils.json_file_loader import JsonFileLoader
 
 class ArabicTextToSignLanguageTranslator:
 
     def __init__(self, video_base_path="static/database/", available_sign_videos_json_path="static/available_sign_videos.json" ):
         self.sign_language_video_assembler = SignLanguageVideoAssembler(video_base_path=video_base_path)
-        self.available_sign_videos = FileManager().json_load(json_path=available_sign_videos_json_path)
+        self.available_sign_videos = JsonFileLoader().load(json_path=available_sign_videos_json_path)
         self.steps = [
                 TokenizationStep(),
                 RemoveStopwordsStep(),
