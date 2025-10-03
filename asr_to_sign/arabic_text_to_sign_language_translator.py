@@ -1,5 +1,5 @@
-from .arabic_text_preprocessor import ArabicTextPreprocessor
-from .sign_language_video_assembler import SignLanguageVideoAssembler
+from .arabic_text_preprocessing.arabic_text_preprocessor import ArabicTextPreprocessor
+from .video_processing.sign_language_video_assembler import SignLanguageVideoAssembler
 
 
 #TODO: Add private methods where applicable

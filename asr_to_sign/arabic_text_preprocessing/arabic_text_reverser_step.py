@@ -1,4 +1,4 @@
-from .interfaces import PreprocessingStep
+from asr_to_sign.interfaces import PreprocessingStep
 import logging
 
 

@@ -24,7 +24,7 @@ from .arabic_text_reverser_step import ArabicTextReverserStep
 from .arabic_text_normalizer_step import ArabicTextNormalizerStep
 from .arabic_text_reshaper_step import ArabicTextReshaperStep
 from .word_to_sign_video_mapper import WordToSignVideoMapper
-from .file_manager import FileManager
+from asr_to_sign.utils.file_manager import FileManager
 
 class ArabicTextPreprocessor:
     """

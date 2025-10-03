@@ -1,4 +1,4 @@
-from .interfaces import PreprocessingStep
+from asr_to_sign.interfaces import PreprocessingStep
 from .arabic_text_normalizer_step import ArabicTextNormalizerStep
 from typing import List
 import logging

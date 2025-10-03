@@ -1,4 +1,4 @@
-# from .interfaces import PreprocessingStep
+# fromasr_to_sign.interfaces import PreprocessingStep
 # from tokenize import tokenize
 
 # class TokenizationStep(PreprocessingStep):
@@ -8,7 +8,7 @@
 
 
 import logging
-from .interfaces import PreprocessingStep
+from asr_to_sign.interfaces import PreprocessingStep
 from nltk.tokenize import word_tokenize
 
 class TokenizationStep(PreprocessingStep):

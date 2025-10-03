@@ -1,7 +1,5 @@
-from .file_manager import FileManager
+from asr_to_sign.utils.file_manager import FileManager
 import os
-import arabic_reshaper
-import unicodedata
 from bidi.algorithm import get_display
 
 #TODO: Add docstring and comments where needed

@@ -1,5 +1,5 @@
 from bidi import get_display
-from .interfaces import PreprocessingStep
+from asr_to_sign.interfaces import PreprocessingStep
 import arabic_reshaper
 import logging
 

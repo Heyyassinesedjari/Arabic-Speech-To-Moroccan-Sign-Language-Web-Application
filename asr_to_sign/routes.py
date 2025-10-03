@@ -3,7 +3,7 @@ from asr_to_sign import app
 from asr_to_sign.speech_recognizer import SpeechRecognizer
 from asr_to_sign.arabic_text_to_sign_language_translator import ArabicTextToSignLanguageTranslator
 import os
-from .file_manager import FileManager
+from .utils.file_manager import FileManager
 
 
 #TODO: Refactor using OOP where applicable (fololowing SOLID principles)
